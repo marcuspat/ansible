@@ -1,0 +1,22 @@
+#Playbook to add HISTTIMEFORMAT to /etc/profile
+
+- name: etcprofile
+  hosts: all_linux_hosts
+  remote_user: ansible
+  become: true
+  become_method: sudo
+  become_user: root
+ 
+  tasks:
+        - name: insert line before match
+          lineinfile:
+            dest: /etc/profile
+            line: 'HISTTIMEFORMAT="%d/%b/%Y %T "'
+            insertbefore: 'export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL' 
+
+        - name: insert line after match
+          replace:
+           path: /etc/profile
+           regexp: 'export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL'
+           replace: 'export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL HISTTIMEFORMAT'
+
