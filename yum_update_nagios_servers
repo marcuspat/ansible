@@ -1,0 +1,36 @@
+#This is for doing yum updates to a nagios server. It runs yum update, reboot
+#then after the server is up it checks to make sure httpd and nagios is running
+
+- name: perform yum update / reboot server
+  hosts: 
+  serial: 1
+  remote_user: ansible
+  become: true
+  become_method: sudo
+  become_user: root
+ 
+  tasks:
+        - name: Perform yum update of all packages
+          yum:
+            name: '*'
+            state: latest
+        
+        - name: Reboot machine
+          reboot:
+            msg: "Reboot By Ansible"
+            connect_timeout: 5
+            reboot_timeout: 600
+            pre_reboot_delay: 0
+            post_reboot_delay: 30
+            test_command: whoami
+
+        - name: Make sure httpd is running
+          systemd:
+            state: started
+            name: httpd
+ 
+        - name: Make sure nagios is running
+          systemd:
+            state: started
+            name: nagios
+
