@@ -28,7 +28,7 @@
             state: started
             name: httpd
  
-        - name: Make sure nagios is running
+        - name: Make sure elasticsearch is running
           systemd:
             state: started
             name: elasticsearch
