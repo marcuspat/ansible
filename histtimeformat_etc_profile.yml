@@ -1,6 +1,6 @@
 #Playbook to add HISTTIMEFORMAT to /etc/profile for CentOS 7 hosts
 
-- name: etcprofile
+- name: etcprofileHISTTIMEFORMAT
   hosts: all_linux_hosts
   remote_user: ansible
   become: true
