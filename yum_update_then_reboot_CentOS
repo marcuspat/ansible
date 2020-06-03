@@ -2,6 +2,8 @@
 ##Then reboot the server, I have set the serial
 ##To 1 so that only one server is done at a time
 ##Remove the serial line if you want the deafult
+##After the server is rebooted, the reboot module
+##Runs "whoami" to test that the server is accesable via SSH
 
 - name: perform yum update / reboot server
   hosts: yum-test
