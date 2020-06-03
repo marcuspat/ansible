@@ -1,4 +1,4 @@
-#Playbook to add HISTTIMEFORMAT to /etc/profile
+#Playbook to add HISTTIMEFORMAT to /etc/profile for CentOS 7 hosts
 
 - name: etcprofile
   hosts: all_linux_hosts
