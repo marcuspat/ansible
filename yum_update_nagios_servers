@@ -1,5 +1,7 @@
 #This is for doing yum updates to a nagios server. It runs yum update, reboot
 #then after the server is up it checks to make sure httpd and nagios is running
+#if not running it will attempt to start the daemons and fail if any problems occur
+
 
 - name: perform yum update / reboot server
   hosts: 
