@@ -1,3 +1,5 @@
+<p align="center"><img src="assets/banner.svg" alt="ansible — animated banner" width="100%"></p>
+
 # System Administration Ansible Playbooks
 
 Collection of Ansible playbooks for system administration, focusing on server updates, service management, and operational maintenance tasks.
